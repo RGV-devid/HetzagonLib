@@ -10,15 +10,10 @@ local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = Players.LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
 
-local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
-local GetHUI = gethui or (function() return CoreGui end);
-local IsKrampus = ((identifyexecutor or (function() return "" end))():lower() == "krampus");
-
 local ScreenGui = Instance.new('ScreenGui');
-ProtectGui(ScreenGui);
-
+ScreenGui.Name = "HetzagonLib"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
-ScreenGui.Parent = GetHUI();
+ScreenGui.Parent = CoreGui
 
 local Toggles = {};
 local Options = {};
