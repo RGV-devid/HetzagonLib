@@ -9,12 +9,16 @@ local TweenService: TweenService = cloneref(game:GetService('TweenService'));
 local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = Players.LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
+
+local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
+local GetHUI = gethui or (function() return CoreGui end);
 local IsKrampus = ((identifyexecutor or (function() return "" end))():lower() == "krampus");
 
 local ScreenGui = Instance.new('ScreenGui');
-ScreenGui.Name = "HetzagonLib";
+ProtectGui(ScreenGui);
+
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
-ScreenGui.Parent = game.CoreGui;
+ScreenGui.Parent = CoreGui;
 
 local Toggles = {};
 local Options = {};
